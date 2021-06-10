@@ -1,112 +1,57 @@
-## Odd or Even
+## Average Height
 
 # Instructions
 
-Write a program that works out whether if a given number is an odd or even number. 
+You are going to write a program that calculates the average student height from a List of heights. 
 
-Even numbers can be divided by 2 with no remainder. 
+e.g. `student_heights = [180, 124, 165, 173, 189, 169, 146]`
 
-e.g. 86 is **even** because 86 ÷ 2 = 43
+The average height can be calculated by adding all the heights together and dividing by the total number of heights. 
 
-43 does not have any decimal places. Therefore the division is clean.
+e.g.
 
-e.g. 59 is **odd** because 59 ÷ 2 = 29.5
+180 + 124 + 165 + 173 + 189 + 169 + 146 = **1146**
 
-29.5 is not a whole number, it has decimal places. Therefore there is a remainder of 0.5, so the division is not clean.
+There are a total of **7** heights in `student_heights`
 
-The **modulo** is written as a percentage sign (%) in Python. It gives you the remainder after a division. 
+1146 ÷ 7 = **163.71428571428572**
 
-e.g. 
+Average height rounded to the nearest whole number = **164**
 
-6 ÷ 2 = 3 with no remainder. 
+**Important** You should not use the `sum()` or `len()` functions in your answer. You should try to replicate their functionality using what you have learnt about for loops.
 
-```
-6 % 2 = 0
-```
-
-5 ÷ 2 = 2 x **2** + 1, remainder is 1.
+# Example Input 
 
 ```
-5 % 2 = 1
+156 178 165 171 187
 ```
 
-14 ÷ 4 = 3 x **4** + 2, remainder is 2.
+In this case, student_heights would be a list that looks like: [156, 178, 165, 171, 187]
+
+# Example Output 
 
 ```
-14 % 4 = 2
+171
 ```
 
-**Warning** your output should match the Example Output format exactly, even the positions of the commas and full stops. 
+e.g. When you hit **run**, this is what should happen: 
 
-# Example Input 1
-
-```
-43
-```
-
-# Example Output 1
-
-```
-This is an odd number.
-```
-
-# Example Input 2
-
-```
-94
-```
-
-# Example Output 2
-
-```
-This is an even number.
-```
-
-e.g. When you hit **run**, this is what should happen:   
-
-![](https://cdn.fs.teachablecdn.com/bkF9TKJSTGksvxNzOtba)
+ 
+![](https://cdn.fs.teachablecdn.com/Nzb8hUVsQJ6STAGnvDCP)
+ 
 
 # Hint
 
-1. All even numbers can be divided by 2 with 0 remainder.
-2. Try some using the modulo with some odd numbers e.g. 
+1. Remember to use the `round()` function to round the average height before you print it.
 
-```
-3 % 2
-```
-
-```
-5 % 2
-```
-
-```
-7 % 2
-```
-
-Then try using the modulo with some even numbers e.g.
-
-```
-4 % 2
-```
-
-```
-6 % 2
-```
-
-```
-8 % 2
-```
-
-See what's in common each time.
- 
 # Test Your Code
 
 Before checking the solution, try copy-pasting your code into this repl: 
 
-[https://repl.it/@appbrewery/day-3-1-test-your-code](https://repl.it/@appbrewery/day-3-1-test-your-code)
+[https://repl.it/@appbrewery/day-5-1-test-your-code](https://repl.it/@appbrewery/day-5-1-test-your-code)
 
 This repl includes my testing code that will check if your code meets this assignment's objectives. 
 
 # Solution
 
-[https://repl.it/@appbrewery/day-3-1-solution](https://repl.it/@appbrewery/day-3-1-solution)
+[https://repl.it/@appbrewery/day-5-1-solution](https://repl.it/@appbrewery/day-5-1-solution)
