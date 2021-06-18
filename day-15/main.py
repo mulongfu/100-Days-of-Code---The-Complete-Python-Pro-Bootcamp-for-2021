@@ -41,7 +41,7 @@ def check_enough_money(choice, coins):
 def resource_is_enough(choice):
     for i in MENU[choice]["ingredients"]:
         if resources[i] < MENU[choice]["ingredients"][i]:
-            return False, MENU[choice]["ingredients"]
+            return False, i
     return True, 0
 
 
@@ -55,22 +55,30 @@ while not_end:
         print(f"Money: ${total_money}")
         continue
 
-    print("Please insert coins.")
-    quarter = float(input("how many quarters?: ")) * 0.25
-    dimes = float(input("how many dimes?: ")) * 0.1
-    nickles = float(input("how many nickles?: ")) * 0.05
-    pennies = float(input("how many pennies?: ")) * 0.01
+    elif choice == "off":
+        not_end = True
 
-    user_coins_change = check_enough_money(choice, [quarter, dimes, nickles, pennies])
-    print(user_coins_change)
-    if user_coins_change < 0:
-        print("Sorry that's not enough money. Money refunded.")
     else:
-        if resource_is_enough(choice):
-            print(f"Here is ${user_coins_change} in change.")
-            print(f"Here is your latte ☕️. Enjoy!")
-            total_money += MENU[choice]["cost"]
-            for i in MENU[choice]["ingredients"]:
-                resources[i] -= MENU[choice]["ingredients"][i]
+        resource_enough, resource = resource_is_enough(choice)
+        if resource_enough:
+            print("Please insert coins.")
+            quarter = float(input("how many quarters?: ")) * 0.25
+            dimes = float(input("how many dimes?: ")) * 0.1
+            nickles = float(input("how many nickles?: ")) * 0.05
+            pennies = float(input("how many pennies?: ")) * 0.01
+
+            user_coins_change = check_enough_money(
+                choice, [quarter, dimes, nickles, pennies]
+            )
+
+            if user_coins_change < 0:
+                print("Sorry that's not enough money. Money refunded.")
+
+            else:
+                print(f"Here is ${user_coins_change} in change.")
+                print(f"Here is your {choice} ☕️. Enjoy!")
+                total_money += MENU[choice]["cost"]
+                for i in MENU[choice]["ingredients"]:
+                    resources[i] -= MENU[choice]["ingredients"][i]
         else:
-            print("Sorry there is not enough {resource_is_enough(choice)[1]}.")
+            print(f"Sorry there is not enough {resource}.")
